@@ -1,0 +1,56 @@
+require: rubocop-rails
+
+AllCops:
+  NewCops: disable
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - tmp/**/*
+    - bin/*
+    - Capfile
+    - db/schema.rb
+    - node_modules/**/*
+    - vendor/**/*
+
+Rails:
+  Enabled: true
+
+Rails/ApplicationRecord:
+  Exclude:
+    - db/migrate/*
+
+Style/MixinUsage:
+  Exclude:
+    - db/seeds.rb
+    - db/seeds/**/*
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
+
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/**/*
+    - config/routes.rb
+    - db/migrate/*
+    - spec/**/*.rb
+    - test/**/*.rb
+
+Layout/LineLength:
+  Max: 140
+  Exclude:
+    - db/schema.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
+
+Lint/AmbiguousBlockAssociation:                                                                                                            
+  Exclude:
+    - 'spec/**/*'
+
+Style/AsciiComments:
+  Enabled: false
+
+Documentation:
+  Enabled: false
