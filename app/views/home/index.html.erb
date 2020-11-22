@@ -1,6 +1,10 @@
-<section class="jumbotron text-center">
-  <div class="container">
+<section class='jumbotron text-center'>
+  <div class='container'>
     <h1><%= "Hello, #{current_user_name}!" %></h1>
-    <p class="lead text-muted"><%= react_component("HelloWorld", {greeting: 'test greeting'}, {prerender: true}) %> </p>
+    <% if current_user.student? %>
+      <%= react_component('Companies', { 
+        companies: current_user.companies.map(&:attributes)
+      }) %>
+    <% end %>
   </div>
 </section>
