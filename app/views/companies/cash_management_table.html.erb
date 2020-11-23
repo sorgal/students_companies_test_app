@@ -1,0 +1,12 @@
+<div class="col-xl-12">
+  <section class='jumbotron text-center'>
+    <div class='container'>
+
+      <%= react_component('CashMangementTable', { table: @company.cash_management_table(@year),
+                                                  year: @year.to_i, 
+                                                  currentYear: Date.current.year,
+                                                  company: @company,
+                                                  rows: cash_management_table_rows }) %>
+    </div>
+  </section>
+</div>

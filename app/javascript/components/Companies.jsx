@@ -68,6 +68,9 @@ class Companies extends React.Component {
                       <Link to={`/companies/${company.id}/edit`} onClick={() => { this.setState({ referrer: `/companies/${company.id}/edit` }) }}>Edit</Link>
                     </div>
                     <div className="row">
+                      <Link to={`/companies/${company.id}/cash_management_table`} onClick={() => { this.setState({ referrer: `/companies/${company.id}/cash_management_table` }) }}>Cash Management Table</Link>
+                    </div>
+                    <div className="row">
                       <Link to={`/companies/${company.id}`} onClick={(e) => { this.handleDestroy(e, company.id)  }}>Destroy</Link>
                     </div>
                   </div>

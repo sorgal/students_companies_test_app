@@ -1,26 +1,28 @@
-<section class='jumbotron text-center'>
-  <div class='container'>
-    <h2>Edit User</h2>
-    <%= form_for(resource, url: registration_path(resource), class: 'form-horizontal') do |f| %>
-      <%= render 'devise/shared/error_messages', resource: resource %>
+<div class="col-lg-9"> 
+  <section class='jumbotron text-center'>
+    <div class='container'>
+      <h2>Edit User</h2>
+      <%= form_for(resource, url: registration_path(resource), class: 'form-horizontal') do |f| %>
+        <%= render 'devise/shared/error_messages', resource: resource %>
 
-      <div class='form-group'>
-        <%= f.label :first_name, class: 'control-label label' %>
-        <%= f.text_field :first_name, autofocus: true, autocomplete: 'first_name', class: 'form-control' %>
-      </div>
+        <div class='form-group'>
+          <%= f.label :first_name, class: 'control-label label' %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: 'first_name', class: 'form-control' %>
+        </div>
 
-      <div class='form-group'>
-        <%= f.label :last_name, class: 'control-label label' %>
-        <%= f.text_field :last_name, autofocus: true, autocomplete: 'last_name', class: 'form-control' %>
-      </div>
+        <div class='form-group'>
+          <%= f.label :last_name, class: 'control-label label' %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: 'last_name', class: 'form-control' %>
+        </div>
 
-      <div class='form-group'>
-        <%= f.label :avatar, class: 'control-label label' %>
-        <%= f.file_field :avatar %>
-      </div>
-      <div class='form-group'>
-        <%= f.submit 'Update', class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-  </div>
-</section>
+        <div class='form-group'>
+          <%= f.label :avatar, class: 'control-label label' %>
+          <%= f.file_field :avatar %>
+        </div>
+        <div class='form-group'>
+          <%= f.submit 'Update', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

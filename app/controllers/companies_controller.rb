@@ -30,11 +30,28 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def destroy    
+  def destroy
     if @company.destroy
       head :ok
     else
       render json: { errors: @company.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def cash_management_table
+    @year = params[:year] || Date.current.year
+  end
+
+  def new_balance
+    @new_balance = @company.build(year: params[:year], month: params[:month])
+  end
+
+  def create_monthly_balance
+    monthly_balance = company.monthly_balances.build(n)
+    if monthly_balance.save
+      head :created
+    else
+      render json: { errors: monthly_balance.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -46,5 +63,10 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, :country, :currency)
+  end
+
+  def monthly_balance_params
+    params.require(:monthly_balance).permit(:year, :month, :start_balance, :end_balance,
+                                            balance_transactions_attributes: %i[amount putpose transaction_type])
   end
 end
