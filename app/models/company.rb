@@ -17,6 +17,6 @@ class Company < ApplicationRecord
   private
 
   def user_is_student
-    errors.add(:user_id, :user_is_not_student) unless user.student?
+    errors.add(:user_id, 'User is not a student') unless user.student?
   end
 end
