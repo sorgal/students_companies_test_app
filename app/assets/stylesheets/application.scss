@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+ .label {
+   float: left;
+ }
+
+li.username {
+  margin-top: 5px;
+  margin-right: 10px;
+}
