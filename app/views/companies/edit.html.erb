@@ -1,7 +1,9 @@
-<section class='jumbotron text-center'>
-  <div class='container'>
-    <h2>Edit company</h2>
+<div class="col-lg-9">
+  <section class='jumbotron text-center'>
+    <div class='container'>
+      <h2>Edit company</h2>
 
-    <%= react_component('CompanyForm', { company: @company, url: company_path(@company) }) %>
-  </div>
-</section>
+      <%= react_component('CompanyForm', { company: @company, url: company_path(@company) }) %>
+    </div>
+  </section>
+</div>

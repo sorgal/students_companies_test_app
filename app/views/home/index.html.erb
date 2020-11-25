@@ -1,10 +1,12 @@
-<section class='jumbotron text-center'>
-  <div class='container'>
-    <h1><%= "Hello, #{current_user_name}!" %></h1>
-    <% if current_user.student? %>
-      <%= react_component('Companies', { 
-        companies: current_user.companies.map(&:attributes)
-      }) %>
-    <% end %>
-  </div>
-</section>
+<div class="col-lg-9">
+  <section class='jumbotron text-center'>
+    <div class='container'>
+      <h1><%= "Hello, #{current_user_name}!" %></h1>
+      <% if current_user.student? %>
+        <%= react_component('Companies', { 
+          companies: current_user.companies.map(&:attributes)
+        }) %>
+      <% end %>
+    </div>
+  </section>
+</div>

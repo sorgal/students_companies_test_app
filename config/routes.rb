@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :home, only: :index
-  resources :companies, except: %i[index show]
+  resources :companies, except: %i[index show] do
+    member do
+      get :cash_management_table
+      post :create_monthly_balance
+    end
+  end
 end

@@ -41,6 +41,21 @@ Layout/LineLength:
   Exclude:
     - db/schema.rb
 
+Metrics/CyclomaticComplexity:
+  Max: 15
+  Exclude:
+    - db/schema.rb
+
+Metrics/PerceivedComplexity:
+  Max: 15
+  Exclude:
+    - db/schema.rb
+
+Metrics/AbcSize:
+  Max: 30
+  Exclude:
+    - db/schema.rb
+
 Metrics/MethodLength:
   Exclude:
     - db/migrate/*
