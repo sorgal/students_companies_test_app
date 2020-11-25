@@ -40,23 +40,23 @@ class MonthlyBalance < ApplicationRecord
   end
 
   def year_is_wrong
-    errors.add(:year, :wrong_year)
+    errors.add(:year, 'Wrong year')
   end
 
   def month_is_wrong
-    errors.add(:month, :wrong_month)
+    errors.add(:month, 'Wrong month')
   end
 
   def month_and_year_are_already_taken
-    errors.add(:month, :is_already_taken)
+    errors.add(:month, 'Is alrwady taken')
   end
 
   def start_balance_is_not_equal_to_previous_end
-    errors.add(:start_balance, :wrong_balance)
+    errors.add(:start_balance, 'Wrong balance')
   end
 
   def transactions_are_invalid
-    errors.add(:base, :wrong_balance)
+    errors.add(:base, 'Transactions sum is not valid')
   end
 
   def prev_month_last_is_equal_to_current_start

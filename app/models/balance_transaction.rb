@@ -25,7 +25,7 @@ class BalanceTransaction < ApplicationRecord
   private
 
   def purpose_is_wrong
-    errors.add(:purpose, :wrong_purpose)
+    errors.add(:purpose, 'Wrong purpose')
   end
 
   def purpose_is_matched_to_type
