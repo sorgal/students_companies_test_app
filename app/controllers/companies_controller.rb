@@ -24,7 +24,7 @@ class CompaniesController < ApplicationController
   def update
     @company.assign_attributes(company_params)
     if @company.save
-      head :created
+      head :ok
     else
       render json: { errors: @company.errors.full_messages }, status: :unprocessable_entity
     end
@@ -40,19 +40,6 @@ class CompaniesController < ApplicationController
 
   def cash_management_table
     @year = params[:year] || Date.current.year
-  end
-
-  def new_balance
-    @new_balance = @company.build(year: params[:year], month: params[:month])
-  end
-
-  def create_monthly_balance
-    monthly_balance = company.monthly_balances.build(n)
-    if monthly_balance.save
-      head :created
-    else
-      render json: { errors: monthly_balance.errors.full_messages }, status: :unprocessable_entity
-    end
   end
 
   private

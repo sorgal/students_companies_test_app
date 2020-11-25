@@ -7,13 +7,13 @@ class MonthlyBalance < ApplicationRecord
 
   belongs_to :company
 
-  validates :start_balance, :end_balance, :month, :year, presence: true
+  validates :start_balance, :end_balance, :year, presence: true
+  validates :month, uniqueness: { scope: :year }
 
   validate :year_is_wrong, unless: proc { |record| (year..2020 + FOLLOWING_YEARS_COUNT).include?(record.year) }
   validate :month_is_wrong, unless: proc { |record| Date::MONTHNAMES.compact.include?(record.month) }
-  validate :month_and_year_are_already_taken, if: proc { |record| self.class.find_by(year: record.year, month: record.month).present? }
-  validate :start_balance_is_not_equal_to_previous_end, unless: :prev_month_last_is_equal_to_current_start
-  validate :transactions_are_invalid, unless: :transactions_sum_are_valid
+  validate :start_balance_is_not_equal_to_previous_end
+  validate :transactions_are_invalid
 
   accepts_nested_attributes_for :balance_transactions
 
@@ -47,15 +47,13 @@ class MonthlyBalance < ApplicationRecord
     errors.add(:month, 'Wrong month')
   end
 
-  def month_and_year_are_already_taken
-    errors.add(:month, 'Is alrwady taken')
-  end
-
   def start_balance_is_not_equal_to_previous_end
+    return if prev_month_last_is_equal_to_current_start
     errors.add(:start_balance, 'Wrong balance')
   end
 
   def transactions_are_invalid
+    return if transactions_sum_are_valid
     errors.add(:base, 'Transactions sum is not valid')
   end
 

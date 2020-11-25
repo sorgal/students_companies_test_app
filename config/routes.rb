@@ -6,9 +6,6 @@ Rails.application.routes.draw do
 
   resources :home, only: :index
   resources :companies, except: %i[index show] do
-    member do
-      get :cash_management_table
-      post :create_monthly_balance
-    end
+    get :cash_management_table, on: :member
   end
 end
