@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   enum role: { student: 0, teacher: 1 }
 
+  has_many :companies, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
